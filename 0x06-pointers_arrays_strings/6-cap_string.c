@@ -1,22 +1,31 @@
 #include "main.h"
 
 /**
- * cap_string - string converted to uppercase
- * @str: string
- *
- * Return: string converted to capitalized first lettres.
+ * cap_string - capitalizes all words in a string
+ * @s: string
+ * Return: address of s
  */
-char *cap_string(char *str)
+char *cap_string(char *s)
 {
-	int i;
+	int i = 0, j;
+	char a[] = " \t\n,;.!?\"(){}";
 
-	i = 1;
-	if ((str[0] >= 'a') && (str[0] <= 'z'))
-	str[0] -= 32;
-	while (str[i]) {
-		if ((str[i - 1] == ' ' || str[i - 1] == '\t' || str[i - 1] == '\n' || str[i - 1] == ',' || str[i - 1] == ';' || str[i - 1] == '.' || str[i - 1] == '!' || str[i - 1] == '?' || str[i - 1] == '\"' || str[i - 1] == '(' || str[i - 1] == ')' || str[i - 1] == '}' || str[i - 1] == '{') && ((str[i] >= 'a') && (str[i] <= 'z')))
-			str[i] -= 32;
+	while (*(s + i))
+	{
+		if (*(s + i) >= 'a' && *(s + i) <= 'z')
+		{
+			if (i == 0)
+				*(s + i) -= 'a' - 'A';
+			else
+			{
+				for (j = 0; j <= 12; j++)
+				{
+					if (a[j] == *(s + i - 1))
+						*(s + i) -= 'a' - 'A';
+				}
+			}
+		}
 		i++;
 	}
-	return (str);
+	return (s);
 }
