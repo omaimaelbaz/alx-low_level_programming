@@ -1,21 +1,26 @@
 #include "main.h"
+
 /**
- * _strncpy - copy from src to dst
- * @dest: parametre
- * @src: parametre
- * @n: parametre
- * Return: string dest
+ *_strncpy - function that copies a string
+ *
+ * @src: The source of strings
+ * @dest: The destination of the string
+ * @n: The length of int
+ *
+ * Return: pointer to the resulting string dest
  */
 char *_strncpy(char *dest, char *src, int n)
 {
-	int i;
+int i;
 
-	i = 0;
-	while (src[i] != '\0' && i < n)
+	for (i = 0; i < n && *(src + i); i++)
 	{
-		dest[i] = src[i];
-		++i;
+		*(dest + i) = *(src + i);
 	}
-	dest[i] = '\0';
+	for (; i < n; i++)
+	{
+	*(dest + i) = '\0';
+	}
 	return (dest);
+
 }
