@@ -14,7 +14,7 @@ int _sqrt_w(int n, int num)
 	if (num * num == n)
 		return (num);
 	else if (num <= 0)
-		return (-1)
+		return (-1);
 	else
 		return (_sqrt_w(n, num - 1));
 }
