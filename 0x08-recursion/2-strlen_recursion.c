@@ -4,7 +4,7 @@
  *
  * @s: string
  *
- * return :int number 'the lenght of string '
+ * return: length
  */
 int _strlen_recursion(char *s)
 {
